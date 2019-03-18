@@ -1,5 +1,7 @@
 package holdemtypes
 
+import "unicode/utf8"
+
 // Rank Reprecents suit in one symbol
 type Rank byte
 
@@ -24,4 +26,9 @@ const (
 func AllRanks() []Rank {
 	return []Rank{Two, Three, Four, Fife, Six, Seven, Eight, Nine,
 		Ten, Jack, Queen, King, Ace}
+}
+
+func (r Rank) String() string {
+	rune, _ := utf8.DecodeRune([]byte{byte(r)})
+	return string(rune)
 }
