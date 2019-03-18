@@ -22,10 +22,24 @@ const (
 	Ace   Rank = 'A'
 )
 
-// AllRanks returns all possible Ranks
-func AllRanks() []Rank {
-	return []Rank{Two, Three, Four, Fife, Six, Seven, Eight, Nine,
-		Ten, Jack, Queen, King, Ace}
+// Ranks is all possible Ranks
+var Ranks = []Rank{Two, Three, Four, Fife, Six, Seven, Eight, Nine,
+	Ten, Jack, Queen, King, Ace}
+
+// RunkLess is less function for use in sorting
+func RunkLess(r1, r2 Rank) bool {
+	if r1 == r2 {
+		return false
+	}
+	for _, r := range Ranks {
+		if r1 == r {
+			return true
+		}
+		if r2 == r {
+			return false
+		}
+	}
+	return false
 }
 
 func (r Rank) String() string {

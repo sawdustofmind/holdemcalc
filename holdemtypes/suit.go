@@ -13,10 +13,8 @@ const (
 	Spades   Suit = 's'
 )
 
-// AllSuites return all suites
-func AllSuites() []Suit {
-	return []Suit{Clubs, Diamonds, Hearts, Spades}
-}
+// Suits is all suites
+var Suits = []Suit{Clubs, Diamonds, Hearts, Spades}
 
 func (s Suit) String() string {
 	rune, _ := utf8.DecodeRune([]byte{byte(s)})
